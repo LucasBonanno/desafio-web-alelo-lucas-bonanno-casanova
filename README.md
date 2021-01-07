@@ -23,7 +23,7 @@ Elaborar os testes de automação abaixo e disponibilizar em repositório web, a
 # Tecnologias requeridas
 -	Java
 -	Selenium webdriver
--	Cucumber 
+-	Cucumber a
 
 # **O que gostaríamos de ver neste desafio**
 1.BDD
