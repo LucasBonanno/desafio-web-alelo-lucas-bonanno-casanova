@@ -45,49 +45,6 @@ Elaborar os testes de automação abaixo e disponibilizar em repositório web, a
 # **Envio do desafio**
 - Criar repositório web aberto ao público: desafio-web-alelo-{nome do participante}
 
-
-# Parte 2 - DESAFIO AUTOMAÇÃO - API # 
-
-# Introdução 
-
-O desafio se trata de uma API responsável pelo controle de livros dos estudantes. O cadastro de estudantes deverá ser único, e o mesmo não poderá ter livros duplicados. Para auxiliar o bibliotecário, o sistema deverá exibir a lista de estudantes em ordem alfabética para facilitar a visualização de livros dos estudantes. Caso seja necessário, o sistema permitirá atualização de dados dos estudantes validando a existência do cpf.
-
-# Tecnologias back-end
--	Java
--	Spring
--	Spring Boot
--	Maven
--	H2
--	Swagger
-
-# Requerimentos
-
-Para executar a aplicação é necessário:
-1.	Instalação do lombok
-2.	JDK 1.8
-3.	Maven
-
-Serviços disponiveis:
--	http://localhost:8080/swagger-ui.html#
--	http://localhost:8080/h2-console
--	Obs.: JDBC URL: jdbc:h2:mem:alelo-BookLibrary
--	Serviços disponibilizados no swagger
-	
-	- POST; 
-	- GET; 
-	- PATCH;
-
-# **O que gostaríamos de ver neste desafio**
-1.BDD
-2. Escrita dos cenários
-3. Reutilização dos Gherkins
-4. Legibilidade
-
-2.Desenvolvimento dos Testes Integrados 
- 1. Estrutura do projeto
- 2. Requisições
- 3. Asserts
-
 # **O que será avaliado**
 1.Código fonte
  -	Boas práticas de programação
@@ -100,20 +57,52 @@ Serviços disponiveis:
 	
 3.Build do projeto com os testes integrados
 
-**4.Descrição dos bugs encontrados abaixo:**
-- **BUGS:**
+# Lucas Bonanno Casanova 
 
-# O que será um diferencial
--	PIPE em qualquer ferramenta de CI
+### https://www.linkedin.com/in/lucas-bonanno-casanova-automation-qa/
 
-# Tecnologias para automação
--	Java
--	Restassured
--	Cucumber
--	Junit
+### Estrutura
+É um Projeto Maven baseado na técnica de desenvolvimento BDD (Behavior Driven Development). Desenvolvido em Java e Gherkin com framework Selenium e as ferramentas JUnit e Cucumber. 
 
-# **Envio do desafio**
--	Criar um Fork a partir desse repositório com o padrão: desafio-api-alelo-{nome do participante} 
--   Abrir e um Pull Request
+### Instalação
+Clonar o projeto do repositório para ter acesso. Executar o comando no terminal:
+```sh
+$ git clone https://github.com/LucasBonanno/desafio-web-alelo-lucas-bonanno-casanova
+```
+**Observações:**
+ - É necessário ter o plugin do Cucumber intalado na IDE
 
-Mão na massa!
+### Execução dos Casos de Testes
+A **RunCucumberTest.class** foi estruturada para ser o disparador. 
+Para executar basta alimentar a opção "tags" da anotação @CucumberOptions da classe executora.
+Exemplo:
+@CucumberOptions(
+		features = "src/test/resources/features/",
+		glue = "br.com.alelo.teste",
+        **tags = {"@Tags"},** 
+		plugin = {"pretty", "html:evidences/report-html", "json:evidences/report.json"},
+		monochrome = false,
+		snippets = SnippetType.CAMELCASE,
+		dryRun = false,
+		strict = true
+		)
+
+A classe executora está em: **/src/test/java/br/com/alelo/teste/runner/RunCucumberTest.java**
+
+Os Casos de Testes estão em:
+**/src/test/resources/features**
+
+Para selecionar o browser que será utilizado para execução dos Casos de Testes é necessário alterar o enum Browser da Propriedades.class em: 
+**/src/test/java/br/com/alelo/core/Propriedades.java**
+Exemplo:
+- Utilizando o browser Chrome
+  public static Browser browser = Browser.CHROME;
+
+### Plugins e Drivers
+
+| Plugin | Link |
+| ------ | ------ |
+| Cucumber Eclipse | https://marketplace.eclipse.org/content/cucumber-eclipse-plugin |
+| Cucumber Intellij | https://plugins.jetbrains.com/plugin/7212-cucumber-for-java|
+| Chrome Drive | https://chromedriver.chromium.org/getting-started |
+| FireFox Drive | https://github.com/mozilla/geckodriver/releases |
