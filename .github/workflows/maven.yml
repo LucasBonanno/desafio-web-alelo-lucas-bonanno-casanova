@@ -18,7 +18,7 @@ jobs:
         - uses: actions/checkout@v2
         - name: Set up JDK 1.8
         - uses: actions/setup-java@v1
-        - with: java-version: 1.8
+          with: java-version 1.8
         - name: Build with Maven
         run: mvn -B package --file pom.xml
 
@@ -31,30 +31,30 @@ jobs:
                 - "4444:4444"
 
             chrome:
-            image: selenium/node-chrome:3.141.59-zinc
-            container_name: Chrome-1
-            networks:
-                - seleniumGrid
-            depends_on:
-                - selenium-hub
-            environment:
-                - HUB_HOST=selenium-hub
-                - HUB_PORT=4444
-                - NODE_MAX_INSTANCES=2
-                - NODE_MAX_SESSIONS=2
+                image: selenium/node-chrome:3.141.59-zinc
+                container_name: Chrome-1
+                networks:
+                    - seleniumGrid
+                depends_on:
+                    - selenium-hub
+                environment:
+                    - HUB_HOST=selenium-hub
+                    - HUB_PORT=4444
+                    - NODE_MAX_INSTANCES=2
+                    - NODE_MAX_SESSIONS=2
 
             chrome2:
-            image: selenium/node-chrome:3.141.59-zinc
-            container_name: Chrome-2
-            networks:
-                - seleniumGrid
-            depends_on:
-                - selenium-hub
-            environment:
-                - HUB_HOST=selenium-hub
-                - HUB_PORT=4444
-                - NODE_MAX_INSTANCES=2
-                - NODE_MAX_SESSIONS=2
+                image: selenium/node-chrome:3.141.59-zinc
+                container_name: Chrome-2
+                networks:
+                    - seleniumGrid
+                depends_on:
+                    - selenium-hub
+                environment:
+                    - HUB_HOST=selenium-hub
+                    - HUB_PORT=4444
+                    - NODE_MAX_INSTANCES=2
+                    - NODE_MAX_SESSIONS=2
 
 networks:
     seleniumGrid:
