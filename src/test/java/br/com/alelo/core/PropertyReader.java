@@ -6,8 +6,6 @@ import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-import br.com.alelo.utils.Utils;
-
 /**
  * Classe que efetua leitura de chaves do arquivo 'config.properties'.
  * 
@@ -17,19 +15,12 @@ public class PropertyReader {
 
 	private static Properties prop = new Properties();
 	private static InputStream input = null;
-
-	private static String pathProperties = Paths.get("").toAbsolutePath().toString();
-
-	private static String getEndPath() {
-		final String pathForWindows = "\\src\\test\\resources\\config\\config.properties";
-		final String pathForUnix = "/src/test/resources/config/config.properties";
-		return Utils.isUnix() ? pathForUnix : pathForWindows;
-	}
+	private static String pathProperties = Paths.get("").toAbsolutePath().toString()
+			+ "\\src\\test\\resources\\config\\config.properties";
 
 	private static void carregarProperties() {
-		final String fullPath = pathProperties + getEndPath();
 		try {
-			input = new FileInputStream(fullPath);
+			input = new FileInputStream(pathProperties);
 			prop.load(input);
 		} catch (IOException e) {
 			e.printStackTrace();

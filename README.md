@@ -71,6 +71,8 @@ $ git clone https://github.com/LucasBonanno/desafio-web-alelo-lucas-bonanno-casa
 ```
 **Observações:**
  - É necessário ter o plugin do Cucumber intalado na IDE
+ - É necessário ter o Sistema Operacional Windows
+ - Utilizar ChromeDriver ou GheckoDriver compativel com seu Browser
 
 ### Execução dos Casos de Testes
 A **RunCucumberTest.class** foi estruturada para ser o disparador. 

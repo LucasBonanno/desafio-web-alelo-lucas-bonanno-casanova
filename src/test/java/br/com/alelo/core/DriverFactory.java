@@ -2,12 +2,11 @@ package br.com.alelo.core;
 
 import java.nio.file.Paths;
 
+//import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import br.com.alelo.utils.Utils;
 
 public class DriverFactory {
 
@@ -20,18 +19,15 @@ public class DriverFactory {
 	}
 
 	public static WebDriver getDriver() {
-		final String path = getPathFromWebDriverByOSName();
-		final String extension = getExtensionByOSName();
-
 		if (driver == null) {
 			switch (Propriedades.browser) {
 			case FIREFOX:
-				webdriver = path + "/geckodriver" + extension;
+				webdriver = Paths.get("").toAbsolutePath().toString() + "/drivers/geckodriver.exe";
 				System.setProperty("webdriver.gecko.driver", webdriver);
 				driver = new FirefoxDriver();
 				break;
 			case CHROME:
-				webdriver = path + "/chromedriver" + extension;
+				webdriver = Paths.get("").toAbsolutePath().toString() + "/drivers/chromedriver.exe";
 				System.setProperty("webdriver.chrome.driver", webdriver);
 				driver = new ChromeDriver();
 				break;
@@ -51,14 +47,5 @@ public class DriverFactory {
 			driver.quit();
 			driver = null;
 		}
-	}
-
-	private static String getPathFromWebDriverByOSName() {
-		final String fullPath = Paths.get("").toAbsolutePath().toString();
-		return Utils.isUnix() ? fullPath + "/drivers" : fullPath + "/drivers";
-	}
-
-	private static String getExtensionByOSName() {
-		return Utils.isUnix() ? "" : ".exe";
 	}
 }
