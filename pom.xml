@@ -5,13 +5,13 @@
 	<groupId>br.com.alelo</groupId>
 	<artifactId>desafio-web-alelo-lucas-bonanno-casanova</artifactId>
 	<version>1.0.0</version>
-	<developers>
-		<developer>
-			<name>Lucas Bonanno Casanova</name>
-			<email>lucas.bonani@gmail.com</email>
-			<url>https://www.linkedin.com/in/lucas-bonanno-casanova-automation-qa/</url>
-		</developer>
-	</developers>
+		<developers>
+			<developer>
+				<name>Lucas Bonanno Casanova</name>
+				<email>lucas.bonani@gmail.com</email>
+				<url>https://www.linkedin.com/in/lucas-bonanno-casanova-automation-qa/</url>
+			</developer>
+		</developers>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

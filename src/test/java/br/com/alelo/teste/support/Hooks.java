@@ -26,7 +26,7 @@ public class Hooks {
 
 	@Before
 	public void beforeScenario(Scenario scenario) {
-		System.out.println("Iniciando a execução do teste: " + scenario.getName());
+		System.out.println("Starting the test run: " + scenario.getName());
 		Thread.currentThread().setName(scenario.getName());
 		getDriver().get(PropertyReader.getProperty("web.url"));
 	}

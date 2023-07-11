@@ -13,5 +13,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      - name: Start Container
+        run: docker-compose -f "docker-compose.yml" up -d --build
       - name: Build with Maven
-        run: mvn test
+        run: SELENIUM_REMOTE_URL=http://localhost:4444 mvn test
+      - name: Stop containers
+        if: always()
+        run: docker-compose -f "docker-compose.yml" down
