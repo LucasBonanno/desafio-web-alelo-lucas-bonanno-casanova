@@ -8,7 +8,7 @@ on:
     types: [ build_application ]
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: linux-latest
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
